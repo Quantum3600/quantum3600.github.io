@@ -36,13 +36,18 @@ jobs:
       - name: Grant Execute Permission for Gradle Wrapper
         run: chmod +x gradlew
 
-      # Export using Kobweb's built-in Gradle task
+      # Install Playwright Chromium so Kobweb can snapshot @Page composables
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium
+
+      # Export Kobweb static site via Gradle
       - name: Export Kobweb Site
-        run: ./gradlew :site:kobwebExport -PkobwebLayout=static
+        run: ./gradlew :site:kobwebExport -PkobwebExportLayout=STATIC --stacktrace
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
+      # Upload the exported static site directly from .kobweb/site
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
