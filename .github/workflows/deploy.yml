@@ -3,7 +3,7 @@ name: Deploy Kobweb Site to GitHub Pages
 on:
   push:
     branches:
-      - main  # Change to 'master' if your default branch is named master
+      - master  # Change to 'master' if your default branch is named master
 
 # Grant GITHUB_TOKEN the required permissions to deploy to Pages
 permissions:
