@@ -47,11 +47,11 @@ jobs:
 
       - name: Verify Export Output
         run: |
-          if [ -d ".kobweb/site" ]; then
-            echo "✓ .kobweb/site directory found"
+          if [ -d "site/.kobweb/site" ]; then
+            echo "✓ site/.kobweb/site directory found"
             ls -la .kobweb/site
           else
-            echo "✗ .kobweb/site directory NOT found"
+            echo "✗ site/.kobweb/site directory NOT found"
             echo "Checking for .kobweb directory:"
             ls -la .kobweb/ || echo "No .kobweb directory"
             echo ""
@@ -67,7 +67,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.kobweb/site'
+          path: 'site/.kobweb/site'
 
       - name: Deploy to GitHub Pages
         id: deployment
