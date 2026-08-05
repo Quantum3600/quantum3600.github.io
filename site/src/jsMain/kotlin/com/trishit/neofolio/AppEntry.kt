@@ -2,8 +2,10 @@ package com.trishit.neofolio
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import com.trishit.neofolio.style.Fonts
 import com.varabyte.kobweb.compose.css.ScrollBehavior
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.minHeight
 import com.varabyte.kobweb.compose.ui.modifiers.scrollBehavior
 import com.varabyte.kobweb.core.App
@@ -30,7 +32,11 @@ fun initColorMode(ctx: InitSilkContext) {
 @InitSilk
 fun initStyles(ctx: InitSilkContext) {
     ctx.stylesheet.apply {
-        registerStyleBase("body") { Modifier.scrollBehavior(ScrollBehavior.Smooth) }
+        registerStyleBase("body") {
+            Modifier
+                .scrollBehavior(ScrollBehavior.Smooth)
+                .fontFamily(Fonts.Display, "sans-serif")
+        }
     }
 }
 
@@ -42,7 +48,11 @@ fun AppEntry(content: @Composable () -> Unit) {
         LaunchedEffect(colorMode) {
             colorMode.saveToLocalStorage(COLOR_MODE_KEY)
         }
-        Surface(SmoothColorStyle.toModifier().minHeight(100.vh)) {
+        Surface(
+            SmoothColorStyle.toModifier()
+                .minHeight(100.vh)
+                .fontFamily(Fonts.Display, "sans-serif")
+        ) {
             content()
         }
     }

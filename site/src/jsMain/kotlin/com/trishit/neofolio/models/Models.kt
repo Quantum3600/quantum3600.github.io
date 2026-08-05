@@ -1,4 +1,4 @@
-package com.neofolio.models
+package com.trishit.neofolio.models
 
 enum class Theme {
     LIGHT, DARK, RETRO
@@ -37,10 +37,10 @@ data class Socials(
 
 data class PortfolioData(
     val name: String,
+    val role: String,
     val about: String,
     val skills: List<SkillGroup>,
     val projects: List<Project>,
     val education: List<Education>,
     val socials: Socials
 )
-
