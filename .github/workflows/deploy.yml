@@ -43,6 +43,22 @@ jobs:
       # Export Kobweb static site via Gradle
       - name: Export Kobweb Site
         run: ./gradlew :site:kobwebExport -PkobwebExportLayout=STATIC --stacktrace
+        continue-on-error: false
+
+      - name: Verify Export Output
+        run: |
+          if [ -d ".kobweb/site" ]; then
+            echo "✓ .kobweb/site directory found"
+            ls -la .kobweb/site
+          else
+            echo "✗ .kobweb/site directory NOT found"
+            echo "Checking for .kobweb directory:"
+            ls -la .kobweb/ || echo "No .kobweb directory"
+            echo ""
+            echo "Checking current directory structure:"
+            ls -la
+            exit 1
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
