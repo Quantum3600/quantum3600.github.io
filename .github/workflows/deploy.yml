@@ -3,15 +3,13 @@ name: Deploy Kobweb Site to GitHub Pages
 on:
   push:
     branches:
-      - master  # Change to 'master' if your default branch is named master
+      - master
 
-# Grant GITHUB_TOKEN the required permissions to deploy to Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, canceling queued runs
 concurrency:
   group: 'pages'
   cancel-in-progress: true
@@ -35,11 +33,12 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      - name: Setup Kobweb CLI
-        uses: varabyte/kobweb-cli-setup-action@v1
+      - name: Grant Execute Permission for Gradle Wrapper
+        run: chmod +x gradlew
 
+      # Export using Kobweb's built-in Gradle task
       - name: Export Kobweb Site
-        run: kobweb export --layout static
+        run: ./gradlew :site:kobwebExport -PkobwebLayout=static
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
