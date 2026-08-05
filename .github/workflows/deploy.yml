@@ -49,7 +49,7 @@ jobs:
         run: |
           if [ -d "site/.kobweb/site" ]; then
             echo "✓ site/.kobweb/site directory found"
-            ls -la .kobweb/site
+            ls -la site/.kobweb/site
           else
             echo "✗ site/.kobweb/site directory NOT found"
             echo "Checking for .kobweb directory:"
