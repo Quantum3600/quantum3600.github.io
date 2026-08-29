@@ -25,7 +25,7 @@ fun SkillsSection() {
                 .fontWeight(FontWeight.Black)
                 .fontFamily(Fonts.Display, "sans-serif")
                 .textTransform(TextTransform.Uppercase)
-                .margin(bottom = 4.cssRem)
+                .margin(top = 4.cssRem, bottom = 4.cssRem)
                 .toAttrs()
         ) {
             Text("Technical Arsenal")

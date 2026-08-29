@@ -26,21 +26,21 @@ fun HeroSection() {
             .alignItems(com.varabyte.kobweb.compose.css.AlignItems.Center)
             .justifyContent(com.varabyte.kobweb.compose.css.JustifyContent.Center)
             .padding(top = 3.cssRem, bottom = 4.cssRem)
-            .margin(bottom = 10.cssRem)
+            .margin(bottom = 20.cssRem)
             .toAttrs()
     ) {
         Div(
             attrs = Modifier
                 .display(DisplayStyle.Grid)
                 .styleModifier { property("grid-template-columns", "1fr 1.2fr") }
-                .gap(3.cssRem)
+                .gap(4.cssRem)
                 .alignItems(com.varabyte.kobweb.compose.css.AlignItems.Center)
                 .width(100.percent)
                 .toAttrs()
         ) {
             // Profile Image Container
             Div(attrs = Modifier.display(DisplayStyle.Flex).justifyContent(com.varabyte.kobweb.compose.css.JustifyContent.Center).toAttrs()) {
-                Div(attrs = Modifier.position(Position.Relative).width(20.cssRem).height(20.cssRem).toAttrs()) {
+                Div(attrs = Modifier.position(Position.Relative).width(30.cssRem).height(30.cssRem).toAttrs()) {
                     Img(
                         src = "/photo.webp",
                         alt = PORTFOLIO_DATA.name,
