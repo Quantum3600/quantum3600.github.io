@@ -60,6 +60,10 @@ jobs:
             exit 1
           fi
 
+      # NEW FIX STEP: Inject CNAME file into the exported directory before uploading
+      - name: Inject Custom Domain CNAME
+        run: echo "trishit.me" > site/.kobweb/site/CNAME
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
