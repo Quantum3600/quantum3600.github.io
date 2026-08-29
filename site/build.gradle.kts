@@ -24,6 +24,7 @@ kobweb {
                 link(rel = "stylesheet", href = "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Space+Grotesk:wght@500;700;900&display=swap")
                 link(rel = "stylesheet", href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css")
                 link(rel = "stylesheet", href = "https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css")
+                link(rel = "icon", href = "favicon.svg", type = "image/svg+xml")
                 script(src = "https://unpkg.com/lucide@latest") {}
             }
         }
